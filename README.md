@@ -10,6 +10,8 @@
 > JSON-file persistence. Read the Chinese sections below for setup; `DEPLOY.md` is the
 > step-by-step deployment guide. Independently implemented — no code lineage from New API.
 
+📖 **新手从头到尾的完整教程：[docs/README.md](docs/README.md)**（安装、接上游、发密钥、注册与邮箱验证、HTTPS、备份、升级、排错）
+
 ---
 
 ## 这是什么
