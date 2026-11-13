@@ -1,0 +1,32 @@
+# systemd 单元示例。
+# 1) 把仓库放到 /opt/onegate（或改成你的路径）
+# 2) cp .env.example .env 并填写
+# 3) cp deploy/onegate.service /etc/systemd/system/onegate.service
+# 4) systemctl daemon-reload && systemctl enable --now onegate
+# 5) systemctl status onegate && journalctl -u onegate -f
+[Unit]
+Description=OneGate AI gateway
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=onegate
+Group=onegate
+WorkingDirectory=/opt/onegate
+# .env 里不要带引号；权限建议 chmod 600
+EnvironmentFile=/opt/onegate/.env
+ExecStart=/usr/bin/node server.mjs
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=20
+# 只允许写自己的数据目录
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/opt/onegate/data
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target

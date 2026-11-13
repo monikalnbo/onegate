@@ -1,0 +1,25 @@
+# docker compose up -d
+# 首次启动前：cp .env.example .env 并填好 PUBLIC_ORIGIN / ADMIN_ORIGIN / RELAY_ADMIN_KEY
+services:
+  onegate:
+    build: .
+    image: onegate:local
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      HOST: 0.0.0.0
+      # 容器内固定 8787，与上面的端口映射和健康检查保持一致；
+      # 只改宿主侧的 "127.0.0.1:8787:8787" 左边，不要改容器端口。
+      PORT: 8787
+      DATA_DIR: /data
+    ports:
+      # 只绑定本机，由宿主 nginx 反代；不要写成 0.0.0.0:8787
+      - "127.0.0.1:8787:8787"
+    volumes:
+      - ./data:/data
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8787/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s

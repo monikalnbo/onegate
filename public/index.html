@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>OneGate 控制台</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script>
+  (function () {
+    var saved = localStorage.getItem('relay.theme');
+    var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.classList.toggle('dark', dark);
+  })();
+</script>
+<link rel="stylesheet" href="app.css?v=20261112-journey-final">
+<link rel="stylesheet" href="original.css?v=20261112-journey-final">
+</head>
+<body>
+<div id="loginRoot"></div>
+<div id="appRoot" class="app-shell" hidden>
+  <aside id="sidebar" class="sidebar" aria-label="主导航"></aside>
+  <div class="main">
+    <header id="topbar" class="topbar"></header>
+    <main id="view" class="view" tabindex="-1"></main>
+  </div>
+</div>
+<div id="modalRoot"></div>
+<div id="toastRoot" class="toast-root" aria-live="polite" aria-atomic="true"></div>
+<div id="live" class="sr-only" aria-live="polite"></div>
+<script src="charts.js?v=20261112-journey-final" defer></script>
+<script src="app.js?v=20261112-journey-final" defer></script>
+<script src="views/dashboard.js?v=20261112-journey-final" defer></script>
+<script src="views/channels.js?v=20261113-sources2" defer></script>
+<script src="views/keys.js?v=20261113-usd" defer></script>
+<script src="views/usage.js?v=20261112-journey-final" defer></script>
+<script src="views/models.js?v=20261112-journey-final" defer></script>
+<script src="views/groups.js?v=20261112-journey-final" defer></script>
+<script src="views/redeem.js?v=20261112-journey-final" defer></script>
+<script src="views/announcements.js?v=20261112-journey-final" defer></script>
+<script src="views/audit.js?v=20261113-audit3" defer></script>
+<script src="views/logs.js?v=20261112-journey-final" defer></script>
+<script src="views/settings.js?v=20261112-journey-final" defer></script>
+<script src="views/customers.js?v=20261112-journey-final" defer></script>
+<script src="views/mail.js?v=20261112-journey-final" defer></script>
+<script src="views/payment.js?v=20261112-journey-final" defer></script>
+<script src="views/calls.js?v=20261113-calls2" defer></script>
+<script src="views/users.js?v=20261113-calls" defer></script>
+<script src="views/usergroups.js?v=20261113-calls" defer></script>
+<script src="views/sources.js?v=20261113-sources2" defer></script>
+<script src="original-motion.js?v=20261112-journey-final" defer></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+# 运行时数据：绝不能提交（密钥、账户、调用记录都在这里）
+data/
+*.log
+*.tgz
+
+# 本地环境变量
+.env
+.env.*
+!.env.example
+
+# 依赖与构建产物
+node_modules/
+npm-debug.log*
+.npm/
+
+# 临时文件、编辑器与系统垃圾
+*.tmp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+
+# 证书与私钥（只放在服务器上）
+*.pem
+*.key
+*.crt
+*.p12
+.scan-denylist

@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": "optional-stable-id",
+      "name": "示例官方上游",
+      "base_url": "https://api.example.com/v1",
+      "api_key": "sk-your-upstream-key",
+      "path_prefix": "",
+      "models": [
+        "gpt-4o-mini"
+      ],
+      "model_aliases": {
+        "gpt-4o-mini": "gpt-4o-mini-2024-07-18"
+      },
+      "rate_multiplier": 1,
+      "max_concurrency": 8,
+      "queue_ms": 5000,
+      "max_queue": 100,
+      "timeout_ms": 120000,
+      "retries": 2,
+      "weight": 1,
+      "enabled": true,
+      "headers": {}
+    },
+    {
+      "id": "demo-mock",
+      "name": "本地 Mock（演示）",
+      "base_url": "http://127.0.0.1:18901/v1",
+      "api_key": "sk-mock-upstream",
+      "models": [
+        "mock-gpt"
+      ],
+      "rate_multiplier": 1,
+      "max_concurrency": 4,
+      "timeout_ms": 30000,
+      "retries": 0,
+      "weight": 1,
+      "enabled": true
+    }
+  ],
+  "source_groups": [
+    {
+      "id": "group-demo",
+      "name": "演示来源组",
+      "channel_ids": [
+        "demo-mock"
+      ],
+      "note": "仅用于本地演示",
+      "enabled": true
+    }
+  ]
+}

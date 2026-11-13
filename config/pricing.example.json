@@ -1,0 +1,27 @@
+{
+  "gpt-4o-mini": {
+    "in": 0.15,
+    "out": 0.6,
+    "cache": 0.075
+  },
+  "gpt-4o": {
+    "in": 2.5,
+    "out": 10,
+    "cache": 1.25
+  },
+  "claude-sonnet-5-5": {
+    "in": 3,
+    "out": 15,
+    "cache": 0.3
+  },
+  "text-embedding-3-small": {
+    "in": 0.02,
+    "out": 0,
+    "cache": 0
+  },
+  "mock-gpt": {
+    "in": 0.5,
+    "out": 1.5,
+    "cache": 0.1
+  }
+}

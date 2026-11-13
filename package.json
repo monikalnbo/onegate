@@ -1,0 +1,21 @@
+{
+  "name": "onegate",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Self-hosted OpenAI-compatible AI gateway with an admin console, billing ledger and audit trail.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.6.0"
+  },
+  "scripts": {
+    "start": "node --env-file=.env server.mjs",
+    "seed:demo": "node scripts/seed-demo.mjs",
+    "scan": "bash tools/scan-secrets.sh",
+    "test": "node test/smoke.mjs"
+  },
+  "dependencies": {
+    "bcryptjs": "3.0.3",
+    "nodemailer": "10.5.0"
+  }
+}
